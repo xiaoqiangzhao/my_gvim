@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/proj/ult1/design/workarea/b51816/ULT1_N9_2.4/fastmix/rtl_v'
+let g:netrw_dirhist_2='/publish/imx/ult1/fastmix/ULT1_N9_2.3/fastmix/rtl_v'
+let g:netrw_dirhist_3='/proj/imx6ull/design/workarea/b51816/IMX6ULL_T2_2.6/verif/tb/bch/sim_old/BbchTrand.verif/run/LocalJob_0'
+let g:netrw_dirhist_4='/proj/imx6sll/design/workarea/b51816/IMX6SLL_T1_1.3/verification/vectors/mod_csu/logfiles'
+let g:netrw_dirhist_5='/proj/imx6sll/design/workarea/b51816/IMX6SLL_T1_1.5/verification/vectors/sys_dcp/logfiles'
+let g:netrw_dirhist_6='/home/b51816/perl_study/intermediate/Jay-AnaProj/lib'
+let g:netrw_dirhist_7='/home/b51816/perl_study/intermediate/Jay-AnaProj/lib/Jay'
+let g:netrw_dirhist_8='/proj/imx6sll_nobk/b51816/imx6sll/IMX6SLL_T2_0.2/sys_iomux/iomuxc_mux_80_89.sh'
+let g:netrw_dirhist_9='/proj/imx6sll/design/workarea/b51816/IMX6SLL_T2_0.5/verification/vectors/sys_security/logfiles'
