@@ -106,5 +106,11 @@ nnoremap <Leader>f :CtrlPFunky<Cr>
 nnoremap <Leader>u :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
   let g:ctrlp_map = '<S-Space>'
-  let g:ctrlp_tabpage_position = 'b'
+  let g:ctrlp_tabpage_position = 'a'  "new tab after current tab
   let g:ctrlp_cmd = 'CtrlP'
+  let g:ctrlp_regexp = 1
+  let g:ctrlp_use_caching = 1
+  let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+  let g:ctrlp_show_hidden = 1
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.swp       " Linux/MacOSX
+  let g:ctrlp_follow_symlinks = 1
