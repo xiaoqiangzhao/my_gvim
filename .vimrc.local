@@ -1,0 +1,110 @@
+"colorscheme evening
+set ruler                               " show the cursor position all the time
+
+set showcmd                     " display incomplete commands
+
+set incsearch                      " do incremental searching
+nmap <C-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-Space>t :scs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR> 
+nmap <C-Space>v :!fdef.pl -v <C-R>=expand("<cword>") <CR><CR> 
+nmap <Space>c :!fdef.pl -c -v <C-R>=expand("<cword>")  <CR><CR>
+nmap <Space>b :!fdef.pl -t -v <C-R>=expand("<cword>")  <CR><CR>
+nmap <Space>m :!verilog_rtl.pl -m <C-R>=expand("<cword>") <CR><CR>
+nmap <Space>n :!verilog_rtl.pl -d <C-R>=expand("<cword>") <CR><CR>
+nmap <Space>o :!/home/b51816/find_sv.pl <C-R>=expand("<cword>") <CR><CR>
+nmap <Space>s :!/home/b51816/st_testbench.pl <C-R>=expand("<cword>") <CR><CR>
+nmap <Space>q :q <CR><CR>
+nmap <Space>w :w <CR><CR>
+nmap <Space>i :!jay_memory_locate.py --addr=<C-R>=expand("<cword>") <CR><CR>
+nmap tb :tabp <CR><CR>
+nmap tn :tabn <CR><CR>
+nmap <Space>t :tabedit  
+nmap <Space>f :tabedit <C-R>%
+map <F4> :%s//&/gn
+map <F5> 0i//<ESC>j
+map do :! dssc co -noc -lock %<CR>
+map di :! dssc ci -noc %<CR>
+map cir :! run.pl -f %  -show
+map cr :! run.pl -f % 
+set hlsearch
+set number
+"set cscopequickfix=s-,c-,d-,i-,t-,e-
+"colorscheme murphy
+"colorscheme slate
+"colorscheme torte
+"colorscheme desert 
+"colorscheme  evening
+set laststatus=2
+set background=dark
+set encoding=utf-8
+"colorscheme desertdoceanburnt
+"colorscheme solarized
+"colorscheme molokai
+let g:Powerline_colorscheme='solarized256'
+"let g:Powerline_colorscheme='desertdoceanburnt'
+set gcr=a:block-blinkon0
+hi Visual               guibg=GREEN guifg=BLACK
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+set guioptions-=m
+set guioptions-=T
+
+let mapleader=";"
+nmap <Leader>b 0
+nmap <Leader>e $
+nmap <Leader>pa %
+nmap <Leader>cm :! 
+set nowritebackup
+
+
+set shiftwidth=3
+
+set softtabstop=2
+
+
+set ignorecase
+set lines=25
+set nospell
+set columns=80
+
+set confirm
+
+set expandtab
+let g:winManagerWindowLayout='FileExplorer'
+nmap wm :WMToggle<cr>
+nnoremap <Leader>tb  :TagbarToggle<CR>
+nnoremap <Leader>tf  :TagbarSetFoldlevel 0<CR>
+nnoremap <Leader>ts  :TagbarShowTag<CR>
+
+
+let g:syntastic_python_python_exec = '/Users/local/bin/python3'
+"set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1
+
+
+let g:AutoPairsShortcutBackInsert = '--'
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutJump = '-='
+
+
+nnoremap <Leader>f :CtrlPFunky<Cr>
+" Initialise list by a word under cursor
+nnoremap <Leader>u :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+
+  let g:ctrlp_map = '<S-Space>'
+  let g:ctrlp_tabpage_position = 'b'
+  let g:ctrlp_cmd = 'CtrlP'
