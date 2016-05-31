@@ -22,12 +22,11 @@ nmap <Space>s :!/home/b51816/st_testbench.pl <C-R>=expand("<cword>") <CR><CR>
 nmap <Space>q :q <CR><CR>
 nmap <Space>w :w <CR><CR>
 nmap <Space>i :!jay_memory_locate.py --addr=<C-R>=expand("<cword>") <CR><CR>
-nmap tb :tabp <CR><CR>
-nmap tn :tabn <CR><CR>
+nmap tb :tabp <CR>
+nmap tn :tabn <CR>
 nmap <Space>t :tabedit  
 nmap <Space>f :tabedit <C-R>%
 map <F4> :%s//&/gn
-map <F5> 0i//<ESC>j
 map do :! dssc co -noc -lock %<CR>
 map di :! dssc ci -noc %<CR>
 map cir :! run.pl -f %  -show
@@ -105,12 +104,15 @@ nnoremap <Leader>f :CtrlPFunky<Cr>
 " Initialise list by a word under cursor
 nnoremap <Leader>u :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
-  let g:ctrlp_map = '<S-Space>'
-  let g:ctrlp_tabpage_position = 'a'  "new tab after current tab
-  let g:ctrlp_cmd = 'CtrlP'
-  let g:ctrlp_regexp = 1
-  let g:ctrlp_use_caching = 1
-  let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
-  let g:ctrlp_show_hidden = 1
-  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.swp       " Linux/MacOSX
-  let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_map = '<S-Space>'
+let g:ctrlp_tabpage_position = 'a'  "new tab after current tab
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_regexp = 1
+let g:ctrlp_use_caching = 1
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+let g:ctrlp_show_hidden = 1
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.swp       " Linux/MacOSX
+let g:ctrlp_follow_symlinks = 1
+
+nnoremap <F5> :UndotreeToggle<CR>
+let g:undotree_WindowLayout = 2
