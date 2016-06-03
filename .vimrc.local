@@ -12,6 +12,8 @@ nmap <C-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR> 
+
+
 nmap <C-Space>v :!fdef.pl -v <C-R>=expand("<cword>") <CR><CR> 
 nmap <Space>c :!fdef.pl -c -v <C-R>=expand("<cword>")  <CR><CR>
 nmap <Space>b :!fdef.pl -t -v <C-R>=expand("<cword>")  <CR><CR>
@@ -49,12 +51,12 @@ let g:Powerline_colorscheme='solarized256'
 "let g:Powerline_colorscheme='desertdoceanburnt'
 set gcr=a:block-blinkon0
 hi Visual               guibg=GREEN guifg=BLACK
-set guioptions-=l
-set guioptions-=L
-set guioptions-=r
-set guioptions-=R
-set guioptions-=m
-set guioptions-=T
+"set guioptions-=l
+"set guioptions-=L
+"set guioptions-=r
+"set guioptions-=R
+"set guioptions-=m
+"set guioptions-=T
 
 let mapleader=";"
 nmap <Leader>b 0
@@ -62,6 +64,14 @@ nmap <Leader>e $
 nmap <Leader>pa %
 nmap <Leader>cm :! 
 set nowritebackup
+
+"set map for db_process see details in
+"https://github.com/xiaoqiangzhao/jay_sv.git
+"in current version, opts are accepted as string, list is not acceptable
+let g:db_process_db = "'jay_uvm.db ult1_gpc.db ips.db'"
+exe "nmap <Leader><Space>f :!db_process --search_type=function --name=<cword> -f " . g:db_process_db
+exe "nmap <Leader><Space>c :!db_process --search_type=class --name=<cword> -f " . g:db_process_db
+exe "nmap <Leader><Space>t :!db_process --search_type=task --name=<cword> -f " . g:db_process_db
 
 
 set shiftwidth=3
@@ -72,7 +82,7 @@ set softtabstop=2
 set ignorecase
 set lines=25
 set nospell
-set columns=80
+set columns=90
 
 set confirm
 
@@ -82,9 +92,14 @@ nmap wm :WMToggle<cr>
 nnoremap <Leader>tb  :TagbarToggle<CR>
 nnoremap <Leader>tf  :TagbarSetFoldlevel 0<CR>
 nnoremap <Leader>ts  :TagbarShowTag<CR>
+set cursorline  
+  hi cursorline guibg=#2f2f2f
+set cursorcolumn
+  hi CursorColumn guibg=#2f2f2f
+set wrap
 
 
-let g:syntastic_python_python_exec = '/Users/local/bin/python3'
+let g:syntastic_python_python_exec = '/home/b51816/localpython/bin/python3'
 "set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -94,7 +109,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 
-
 let g:AutoPairsShortcutBackInsert = '--'
 let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutJump = '-='
@@ -103,16 +117,52 @@ let g:AutoPairsShortcutJump = '-='
 nnoremap <Leader>f :CtrlPFunky<Cr>
 " Initialise list by a word under cursor
 nnoremap <Leader>u :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+  
 
-let g:ctrlp_map = '<S-Space>'
-let g:ctrlp_tabpage_position = 'a'  "new tab after current tab
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_regexp = 1
-let g:ctrlp_use_caching = 1
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
-let g:ctrlp_show_hidden = 1
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.swp       " Linux/MacOSX
-let g:ctrlp_follow_symlinks = 1
+  let g:ctrlp_map = '<S-Space>'
+  let g:ctrlp_tabpage_position = 'a'  "new tab after current tab
+  let g:ctrlp_cmd = 'CtrlP'
+  let g:ctrlp_regexp = 1
+  let g:ctrlp_use_caching = 1
+  let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+  let g:ctrlp_show_hidden = 1
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.swp       " Linux/MacOSX
+  let g:ctrlp_follow_symlinks = 1
+  let g:ctrlp_max_files = 0
 
 nnoremap <F5> :UndotreeToggle<CR>
 let g:undotree_WindowLayout = 2
+
+let g:tagbar_type_systemverilog = {
+        \ 'ctagstype'   : 'SystemVerilog',
+        \ 'kinds'       : [
+            \ 'b:blocks:1:1',
+            \ 'c:classes:1:0',
+            \ 'e:events:1:0',
+            \ 'f:functions:1:0',
+            \ 'm:modules:0:1',
+            \ 'n:nets:1:0',
+            \ 'p:ports:1:0',
+            \ 't:tasks:1:1',
+            \ 'A:assertions:1:1',
+            \ 'C:contraints:1:0',
+            \ 'V:covergroups:1:0',
+            \ 'v:coverpoints:1:0',
+            \ 'I:interfaces:0:1',
+            \ 'M:modport:0:1',
+            \ 'K:packages:0:1',
+            \ 'P:programs:0:1',
+            \ 'R:properties:0:1',
+            \ 'T:typedefs:0:1'
+        \ ],
+        \ 'sro'         : '.',
+    \ }
+
+  let g:tagbar_ctags_bin = $HOME.'/localctags/bin/ctags'
+let g:tagbar_autoclose = 0
+let g:tagbar_autofocus = 1
+let g:tagbar_width =  20
+"let g:tagbar_show_linenumbers = 1
+let g:tagbar_foldlevel = 3
+let g:tagbar_autoshowtag = 1
+

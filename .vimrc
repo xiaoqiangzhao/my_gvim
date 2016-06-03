@@ -182,8 +182,7 @@
         let g:solarized_termtrans=1
         let g:solarized_contrast="normal"
         let g:solarized_visibility="normal"
-"        color solarized             " Load a colorscheme
-        colorscheme evening
+        color solarized             " Load a colorscheme
     endif
 
     set tabpagemax=15               " Only show 15 tabs
@@ -238,7 +237,7 @@
 
 " Formatting {
 
-    "set nowrap                      " Do not wrap long lines
+    set wrap                      " Do not wrap long lines
     set autoindent                  " Indent at the same level of the previous line
     set shiftwidth=4                " Use indents of 4 spaces
     set expandtab                   " Tabs are spaces, not tabs
@@ -631,8 +630,9 @@
             let g:pymode = 0
         endif
 
+            let g:pymode = 0
         if isdirectory(expand("~/.vim/bundle/python-mode"))
-            let g:pymode_lint_checkers = ['pyflakes']
+            let g:pymode_lint_checkers = ['pyflakes','pylint']
             let g:pymode_trim_whitespaces = 0
             let g:pymode_options = 0
             let g:pymode_rope = 0
@@ -663,13 +663,14 @@
             if exists("g:ctrlp_user_command")
                 unlet g:ctrlp_user_command
             endif
-            let g:ctrlp_user_command = {
-                \ 'types': {
-                    \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-                    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-                \ },
-                \ 'fallback': s:ctrlp_fallback
-            \ }
+            "comment out to enable following links
+ "           let g:ctrlp_user_command = {
+ "               \ 'types': {
+ "                   \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+ "                   \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+ "               \ },
+ "               \ 'fallback': s:ctrlp_fallback
+ "           \ }
 
             if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
                 " CtrlP extensions
@@ -1029,7 +1030,7 @@
         if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
             let g:indent_guides_start_level = 2
             let g:indent_guides_guide_size = 1
-            let g:indent_guides_enable_on_vim_startup = 1
+            let g:indent_guides_enable_on_vim_startup = 0 "jay edit
         endif
     " }
 
@@ -1077,7 +1078,7 @@
             if LINUX() && has("gui_running")
                 set guifont=Andale\ Mono\ Regular\ 12,Menlo\ Regular\ 11,Consolas\ Regular\ 12,Courier\ New\ Regular\ 14
             elseif OSX() && has("gui_running")
-                set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h16,Consolas\ Regular:h16,Courier\ New\ Regular:h16
+                set guifont=Andale\ Mono\ Regular:h12,Menlo\ Regular:h11,Consolas\ Regular:h12,Courier\ New\ Regular:h14
             elseif WINDOWS() && has("gui_running")
                 set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
             endif
@@ -1172,7 +1173,7 @@
         setlocal bufhidden=delete
         setlocal nobuflisted
         setlocal noswapfile
-    "    setlocal nowrap
+        setlocal wrap
         setlocal filetype=shell
         setlocal syntax=shell
 
@@ -1250,15 +1251,4 @@
         endif
     endif
 " }
-"
-
-"set cursorline  
-"  hi cursorline guibg=#555555
-"set cursorcolumn
-"  hi CursorColumn guibg=#123402 
-
-set cursorline  
-  hi cursorline guibg=#655555
-set cursorcolumn
-  hi CursorColumn guibg=#555555 
 set wrap
