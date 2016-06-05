@@ -104,6 +104,8 @@ nnoremap <Leader>f :CtrlPFunky<Cr>
 " Initialise list by a word under cursor
 nnoremap <Leader>u :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
 let g:ctrlp_map = '<S-Space>'
 let g:ctrlp_tabpage_position = 'a'  "new tab after current tab
 let g:ctrlp_cmd = 'CtrlP'
