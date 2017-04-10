@@ -118,3 +118,19 @@ let g:ctrlp_follow_symlinks = 1
 
 nnoremap <F5> :UndotreeToggle<CR>
 let g:undotree_WindowLayout = 2
+
+nnoremap <Leader>sv :source ~/.vimrc.local<CR>
+
+nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+vnoremap <leader>"  `>A"<esc>`<I"<esc>lel
+vnoremap <leader>'  `>A'<esc>`<I'<esc>lel
+
+
+nnoremap H 0w
+noremap H 0w
+vnoremap L $be
+nnoremap L $be
+
+inoremap jk <esc>
+inoremap <esc> <nop>
