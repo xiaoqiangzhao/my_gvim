@@ -1,47 +1,60 @@
-"colorscheme evening
-set ruler                               " show the cursor position all the time
-
-set showcmd                     " display incomplete commands
-
-set incsearch                      " do incremental searching
-nmap <C-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-Space>t :scs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR> 
-nmap <C-Space>v :!fdef.pl -v <C-R>=expand("<cword>") <CR><CR> 
-nmap <Space>c :!fdef.pl -c -v <C-R>=expand("<cword>")  <CR><CR>
-nmap <Space>b :!fdef.pl -t -v <C-R>=expand("<cword>")  <CR><CR>
-nmap <Space>m :!verilog_rtl.pl -m <C-R>=expand("<cword>") <CR><CR>
-nmap <Space>n :!verilog_rtl.pl -d <C-R>=expand("<cword>") <CR><CR>
-nmap <Space>o :!/home/b51816/find_sv.pl <C-R>=expand("<cword>") <CR><CR>
-nmap <Space>s :!/home/b51816/st_testbench.pl <C-R>=expand("<cword>") <CR><CR>
-nmap <Space>q :q <CR><CR>
-nmap <Space>w :w <CR><CR>
-nmap <Space>i :!jay_memory_locate.py --addr=<C-R>=expand("<cword>") <CR><CR>
-nmap tb :tabp <CR>
-nmap tn :tabn <CR>
-nmap <Space>t :tabedit  
-nmap <Space>f :tabedit <C-R>%
-map <F4> :%s//&/gn
-map do :! dssc co -noc -lock %<CR>
-map di :! dssc ci -noc %<CR>
-map cir :! run.pl -f %  -show
-map cr :! run.pl -f % 
+"Common Setting ========{{{
+set shiftwidth=3
+set softtabstop=2
+set ignorecase
+set lines=25
+set nospell
+set columns=90
+set confirm
+set expandtab
+set laststatus=2
+set background=dark
+set encoding=utf-8
+set wrap
 set hlsearch
 set number
+"colorscheme evening
+set ruler                               " show the cursor position all the time
+set showcmd                     " display incomplete commands
+set incsearch                      " do incremental searching
+set shiftround
+"}}}
+
+" Perl Python Scripts Quick Map ======= {{{
+nnoremap <C-Space>v :!fdef.pl -v <C-R>=expand("<cword>") <CR><CR> 
+nnoremap <Space>c :!fdef.pl -c -v <C-R>=expand("<cword>")  <CR><CR>
+nnoremap <Space>b :!fdef.pl -t -v <C-R>=expand("<cword>")  <CR><CR>
+nnoremap <Space>m :!verilog_rtl.pl -m <C-R>=expand("<cword>") <CR><CR>
+nnoremap <Space>n :!verilog_rtl.pl -d <C-R>=expand("<cword>") <CR><CR>
+nnoremap <Space>o :!/home/b51816/find_sv.pl <C-R>=expand("<cword>") <CR><CR>
+nnoremap <Space>s :!/home/b51816/st_testbench.pl <C-R>=expand("<cword>") <CR><CR>
+nnoremap <Space>q :q <CR><CR>
+nnoremap <Space>w :w <CR><CR>
+nnoremap <Space>i :!jay_memory_locate.py --addr=<C-R>=expand("<cword>") <CR><CR>
+nnoremap tb :tabp <CR>
+nnoremap tn :tabn <CR>
+nnoremap <Space>t :tabedit  
+nnoremap <Space>f :tabedit  %:r
+nnoremap <Space>g :tabedit  <C-R><C-W>
+nnoremap <F4> :%s/<C-R><C-W>/&/gn
+noremap <F3>U  <ESC>viwUea
+noremap <F3>u  <ESC>viwue
+"}}}
+
+"Design PDM Map ======= {{{
+nnoremap do :! dssc co -noc -lock %<CR>
+nnoremap di :! dssc ci -noc %<CR>
+nnoremap cir :! run.pl -f %  -show
+nnoremap cr :! run.pl -f % 
+"}}}
+
+"Thema Settings ======== {{{
 "set cscopequickfix=s-,c-,d-,i-,t-,e-
 "colorscheme murphy
 "colorscheme slate
 "colorscheme torte
 "colorscheme desert 
 "colorscheme  evening
-set laststatus=2
-set background=dark
-set encoding=utf-8
 "colorscheme desertdoceanburnt
 "colorscheme solarized
 "colorscheme molokai
@@ -49,42 +62,45 @@ let g:Powerline_colorscheme='solarized256'
 "let g:Powerline_colorscheme='desertdoceanburnt'
 set gcr=a:block-blinkon0
 hi Visual               guibg=GREEN guifg=BLACK
-set guioptions-=l
-set guioptions-=L
-set guioptions-=r
-set guioptions-=R
-set guioptions-=m
-set guioptions-=T
-
+"set guioptions-=l
+"set guioptions-=L
+"set guioptions-=r
+"set guioptions-=R
+"set guioptions-=m
+"set guioptions-=T
+"}}}
 let mapleader=";"
-nmap <Leader>b 0
-nmap <Leader>e $
-nmap <Leader>pa %
-nmap <Leader>cm :! 
-set nowritebackup
+"nnoremap <Leader>b 0
+"nnoremap <Leader>e $
+"nnoremap <Leader>pa %
+"nnoremap <Leader>cm :!
+"set nowritebackup
+"
+"db_process SystemVerilog Mappings ========{{{
+"set map for db_process see details in
+"https://github.com/xiaoqiangzhao/jay_sv.git
+"in current version, opts are accepted as string, list is not acceptable
+let g:db_process_db = "'jay_uvm.db ult1_gpc.db ips.db qx_sv.db s_amba_vip.db'"
+exe "nnoremap <Leader><Space>f :!db_process --search_type=function --name=<cword> -f " . g:db_process_db
+exe "nnoremap <Leader><Space>c :!db_process --search_type=class --name=<cword> -f " . g:db_process_db
+exe "nnoremap <Leader><Space>t :!db_process --search_type=task --name=<cword> -f " . g:db_process_db
+"}}}
+nnoremap <Leader>dd : g/<C-R><C-W>/d 
+nnoremap <Leader>m :!fm -n <C-R>=expand("<cword>")
 
 
-set shiftwidth=3
-
-set softtabstop=2
-
-
-set ignorecase
-set lines=25
-set nospell
-set columns=80
-
-set confirm
-
-set expandtab
 let g:winManagerWindowLayout='FileExplorer'
-nmap wm :WMToggle<cr>
+nnoremap wm :WMToggle<cr>
 nnoremap <Leader>tb  :TagbarToggle<CR>
 nnoremap <Leader>tf  :TagbarSetFoldlevel 0<CR>
 nnoremap <Leader>ts  :TagbarShowTag<CR>
+set cursorline  
+  hi cursorline guibg=#2f2f2f
+set cursorcolumn
+  hi CursorColumn guibg=#2f2f2f
 
 
-let g:syntastic_python_python_exec = '/Users/local/bin/python3'
+let g:syntastic_python_python_exec = '/home/b51816/localpython/bin/python3'
 "set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -92,8 +108,7 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
-
+let g:syntastic_check_on_wq = 0
 
 let g:AutoPairsShortcutBackInsert = '--'
 let g:AutoPairsFlyMode = 1
@@ -103,16 +118,121 @@ let g:AutoPairsShortcutJump = '-='
 nnoremap <Leader>f :CtrlPFunky<Cr>
 " Initialise list by a word under cursor
 nnoremap <Leader>u :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+  
 
-let g:ctrlp_map = '<S-Space>'
-let g:ctrlp_tabpage_position = 'a'  "new tab after current tab
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_regexp = 1
-let g:ctrlp_use_caching = 1
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
-let g:ctrlp_show_hidden = 1
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.swp       " Linux/MacOSX
-let g:ctrlp_follow_symlinks = 1
+  let g:ctrlp_map = '<Leader><Space>'
+  let g:ctrlp_tabpage_position = 'a'  "new tab after current tab
+  let g:ctrlp_cmd = 'CtrlP'
+  let g:ctrlp_regexp = 1
+  let g:ctrlp_use_caching = 1
+  let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+  let g:ctrlp_show_hidden = 1
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.swp       " Linux/MacOSX
+  let g:ctrlp_follow_symlinks = 1
+  let g:ctrlp_max_files = 0
 
 nnoremap <F5> :UndotreeToggle<CR>
 let g:undotree_WindowLayout = 2
+
+let g:tagbar_type_systemverilog = {
+        \ 'ctagstype'   : 'SystemVerilog',
+        \ 'kinds'       : [
+            \ 'b:blocks:1:1',
+            \ 'c:classes:1:0',
+            \ 'e:events:1:0',
+            \ 'f:functions:1:0',
+            \ 'm:modules:0:1',
+            \ 'n:nets:1:0',
+            \ 'p:ports:1:0',
+            \ 't:tasks:1:1',
+            \ 'A:assertions:1:1',
+            \ 'C:contraints:1:0',
+            \ 'V:covergroups:1:0',
+            \ 'v:coverpoints:1:0',
+            \ 'I:interfaces:0:1',
+            \ 'M:modport:0:1',
+            \ 'K:packages:0:1',
+            \ 'P:programs:0:1',
+            \ 'R:properties:0:1',
+            \ 'T:typedefs:0:1'
+        \ ],
+        \ 'sro'         : '.',
+    \ }
+
+  let g:tagbar_ctags_bin = $HOME.'/localctags/bin/ctags'
+let g:tagbar_autoclose = 0
+let g:tagbar_autofocus = 1
+let g:tagbar_width =  20
+"let g:tagbar_show_linenumbers = 1
+let g:tagbar_foldlevel = 3
+let g:tagbar_autoshowtag = 1
+
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
+"below signature Plugin seems not woring ; wait for fix
+let g:SignatureMap = {
+        \ 'Leader'             :  "m",
+        \ 'PlaceNextMark'      :  "m,",
+        \ 'ToggleMarkAtLine'   :  "m.",
+        \ 'PurgeMarksAtLine'   :  "m-",
+        \ 'DeleteMark'         :  "dm",
+        \ 'PurgeMarks'         :  "mda",
+        \ 'PurgeMarkers'       :  "m<BS>",
+        \ 'GotoNextLineAlpha'  :  "']",
+        \ 'GotoPrevLineAlpha'  :  "'[",
+        \ 'GotoNextSpotAlpha'  :  "`]",
+        \ 'GotoPrevSpotAlpha'  :  "`[",
+        \ 'GotoNextLineByPos'  :  "]'",
+        \ 'GotoPrevLineByPos'  :  "['",
+        \ 'GotoNextSpotByPos'  :  "mn",
+        \ 'GotoPrevSpotByPos'  :  "mp",
+        \ 'GotoNextMarker'     :  "[+",
+        \ 'GotoPrevMarker'     :  "[-",
+        \ 'GotoNextMarkerAny'  :  "]=",
+        \ 'GotoPrevMarkerAny'  :  "[=",
+        \ 'ListLocalMarks'     :  "ms",
+        \ 'ListLocalMarkers'   :  "m?"
+        \ }
+if $CSCOPE_DB != ""
+    cs add $CSCOPE_DB
+endif
+
+"Cscope Mappings ========{{{
+nnoremap <Leader>ccs :scs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>ccg :scs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>ccc :scs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>cct :scs find t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>cce :scs find e <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>ccf :scs find f <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <Leader>cci :scs find i ^<C-R>=expand("<cfile>")<CR><CR>
+nnoremap <Leader>ccd :scs find d <C-R>=expand("<cword>")<CR><CR> 
+"}}}
+
+"Learning Vim Script in The Hard Way ========{{{
+let g:localvimrc = "~/.vimrc.local <CR>"
+exe "nnoremap <Leader>sv :source ". g:localvimrc 
+nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+vnoremap <leader>"  `>A"<esc>`<I"<esc>lel
+vnoremap <leader>'  `>A'<esc>`<I'<esc>lel
+nnoremap H 0
+vnoremap L g_
+inoremap jk <esc>
+inoremap <esc> <nop>
+
+augroup read_rep
+   autocmd!
+   autocmd BufRead,BufNewFile *.rep setlocal nowrap
+augroup END
+
+onoremap in :<c-u>normal! f(vi(<cr>
+onoremap ip :<c-u>normal! F)vi(<cr>
+onoremap p i(
+
+" Vimscript file setting ==========={{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+"}}}
+"}}}
