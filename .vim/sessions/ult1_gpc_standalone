@@ -1,0 +1,771 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +1 classes_v/gpc_lp_trig_agent.sv
+badd +1 classes_v/gpc_lp_trig_drv.sv
+badd +1 modules_v/gpc_lp_trig_if.sv
+badd +1 classes_v/gpc_lp_trig_transaction.sv
+badd +1 classes_v/gpc_lp_ctrl_mon.sv
+badd +1 classes_v/gpc_scoreboard.sv
+badd +1 classes_v/gpc_env.sv
+badd +1 classes_v/gpc_cfg_transaction.sv
+badd +1 classes_v/gpc_per_hdsk_drv.sv
+badd +1 classes_v/gpc_sequence_base_cfg.sv
+badd +1 classes_v/gpc_sequence_base.sv
+badd +1 classes_v/gpc_predictor.sv
+badd +1 classes_v/gpc_reg.ralf
+badd +1 classes_v/ral_gpc_reg_model.sv
+badd +1 classes_v/gpc_test_base.sv
+badd +1 classes_v/NERD_tree_1
+badd +1 NERD_tree_1
+badd +1 classes_v/NERD_tree_2
+argglobal
+silent! argdel *
+set stal=2
+edit NERD_tree_1
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 28 + 45) / 90)
+exe 'vert 3resize ' . ((&columns * 29 + 45) / 90)
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench
+wincmd w
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench
+wincmd w
+argglobal
+edit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/gpc_lp_trig_agent.sv
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 24 - ((7 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+24
+normal! 027|
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 28 + 45) / 90)
+exe 'vert 3resize ' . ((&columns * 29 + 45) / 90)
+tabedit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/NERD_tree_2
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 28 + 45) / 90)
+exe 'vert 3resize ' . ((&columns * 29 + 45) / 90)
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+edit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/NERD_tree_1
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+edit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/gpc_per_hdsk_drv.sv
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 196 - ((5 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+196
+normal! 020|
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 28 + 45) / 90)
+exe 'vert 3resize ' . ((&columns * 29 + 45) / 90)
+tabedit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/gpc_lp_trig_drv.sv
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 20 + 45) / 90)
+exe 'vert 3resize ' . ((&columns * 37 + 45) / 90)
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 35 - ((7 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+35
+normal! 0
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 20 + 45) / 90)
+exe 'vert 3resize ' . ((&columns * 37 + 45) / 90)
+tabedit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/gpc_cfg_transaction.sv
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 58 + 45) / 90)
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 8 - ((6 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+8
+normal! 033|
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 58 + 45) / 90)
+tabedit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/gpc_sequence_base_cfg.sv
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 58 + 45) / 90)
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 29 - ((17 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+29
+normal! 09|
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 58 + 45) / 90)
+tabedit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/gpc_reg.ralf
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 20 + 45) / 90)
+exe 'vert 3resize ' . ((&columns * 37 + 45) / 90)
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 10 - ((8 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+10
+normal! 013|
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 20 + 45) / 90)
+exe 'vert 3resize ' . ((&columns * 37 + 45) / 90)
+tabedit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/gpc_test_base.sv
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 28 + 45) / 90)
+exe 'vert 3resize ' . ((&columns * 29 + 45) / 90)
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 49 - ((9 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+49
+normal! 0
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 28 + 45) / 90)
+exe 'vert 3resize ' . ((&columns * 29 + 45) / 90)
+tabedit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/gpc_sequence_base.sv
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 28 + 45) / 90)
+exe 'vert 3resize ' . ((&columns * 29 + 45) / 90)
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 49 - ((6 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+49
+normal! 021|
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 28 + 45) / 90)
+exe 'vert 3resize ' . ((&columns * 29 + 45) / 90)
+tabedit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/gpc_predictor.sv
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+3wincmd h
+wincmd w
+wincmd w
+wincmd w
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 24 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 20 + 45) / 90)
+exe 'vert 3resize ' . ((&columns * 23 + 45) / 90)
+exe 'vert 4resize ' . ((&columns * 20 + 45) / 90)
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 667 - ((3 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+667
+normal! 010|
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+enew
+file /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/__Tagbar__
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+exe 'vert 1resize ' . ((&columns * 24 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 20 + 45) / 90)
+exe 'vert 3resize ' . ((&columns * 23 + 45) / 90)
+exe 'vert 4resize ' . ((&columns * 20 + 45) / 90)
+tabedit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/gpc_scoreboard.sv
+set splitbelow splitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 43 - ((18 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+43
+normal! 012|
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+tabedit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/gpc_env.sv
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 25 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 64 + 45) / 90)
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 73 - ((3 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+73
+normal! 0
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+exe 'vert 1resize ' . ((&columns * 25 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 64 + 45) / 90)
+tabedit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/gpc_lp_ctrl_mon.sv
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 25 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 64 + 45) / 90)
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 62 - ((12 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+62
+normal! 0
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+exe 'vert 1resize ' . ((&columns * 25 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 64 + 45) / 90)
+tabedit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v/gpc_lp_trig_transaction.sv
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 25 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 64 + 45) / 90)
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 82 - ((13 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+82
+normal! 057|
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/classes_v
+wincmd w
+exe 'vert 1resize ' . ((&columns * 25 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 64 + 45) / 90)
+tabedit /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/modules_v/gpc_lp_trig_if.sv
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 25 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 64 + 45) / 90)
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/modules_v
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 4 - ((3 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+4
+normal! 011|
+lcd /proj/ult1/design/workarea/b51816/ULT1_TO1P1_PROD/blocks/gpcv2/testbench/modules_v
+wincmd w
+exe 'vert 1resize ' . ((&columns * 25 + 45) / 90)
+exe 'vert 2resize ' . ((&columns * 64 + 45) / 90)
+tabnext 7
+set stal=1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filmnrxoOtT
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

@@ -1,3 +1,4 @@
+
 " Modeline and Notes {
 " vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
 "
@@ -237,7 +238,7 @@
 
 " Formatting {
 
-    set wrap                      " Do not wrap long lines
+    set nowrap                      " Do not wrap long lines
     set autoindent                  " Indent at the same level of the previous line
     set shiftwidth=4                " Use indents of 4 spaces
     set expandtab                   " Tabs are spaces, not tabs
@@ -630,9 +631,8 @@
             let g:pymode = 0
         endif
 
-            let g:pymode = 0
         if isdirectory(expand("~/.vim/bundle/python-mode"))
-            let g:pymode_lint_checkers = ['pyflakes','pylint']
+            let g:pymode_lint_checkers = ['pyflakes']
             let g:pymode_trim_whitespaces = 0
             let g:pymode_options = 0
             let g:pymode_rope = 0
@@ -663,14 +663,13 @@
             if exists("g:ctrlp_user_command")
                 unlet g:ctrlp_user_command
             endif
-            "comment out to enable following links
- "           let g:ctrlp_user_command = {
- "               \ 'types': {
- "                   \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
- "                   \ 2: ['.hg', 'hg --cwd %s locate -I .'],
- "               \ },
- "               \ 'fallback': s:ctrlp_fallback
- "           \ }
+            let g:ctrlp_user_command = {
+                \ 'types': {
+                    \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+                    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+                \ },
+                \ 'fallback': s:ctrlp_fallback
+            \ }
 
             if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
                 " CtrlP extensions
@@ -1030,7 +1029,7 @@
         if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
             let g:indent_guides_start_level = 2
             let g:indent_guides_guide_size = 1
-            let g:indent_guides_enable_on_vim_startup = 0 "jay edit
+            let g:indent_guides_enable_on_vim_startup = 1
         endif
     " }
 
@@ -1173,7 +1172,7 @@
         setlocal bufhidden=delete
         setlocal nobuflisted
         setlocal noswapfile
-        setlocal wrap
+        setlocal nowrap
         setlocal filetype=shell
         setlocal syntax=shell
 
@@ -1251,6 +1250,3 @@
         endif
     endif
 " }
-set wrap
-Bundle 'Rykka/InstantRst'
-Bundle 'Rykka/riv.vim'
